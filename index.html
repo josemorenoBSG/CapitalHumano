@@ -34,7 +34,17 @@ h1{font-size:clamp(27px,4.2vw,42px);font-weight:800;letter-spacing:-.02em;margin
 .lede{color:var(--muted);max-width:66ch;margin:0}
 
 /* ---------- hojas ---------- */
-.hojas{display:flex;gap:4px;margin-top:26px;border-bottom:2px solid var(--line)}
+.hojas{display:flex;align-items:flex-end;gap:12px;margin-top:26px;border-bottom:2px solid var(--line)}
+.hojas .tabs{display:flex;gap:4px}
+.cabeza{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.directorio{
+  display:inline-flex;align-items:center;gap:8px;margin:6px 0 0;padding:10px 18px;flex:0 0 auto;
+  background:var(--accent);color:#fff;border-radius:999px;text-decoration:none;
+  font-size:14px;font-weight:600;white-space:nowrap;
+}
+.directorio svg{width:15px;height:15px;opacity:.9}
+.directorio:hover{filter:brightness(1.08)}
+.directorio:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .hojas button{
   border:1px solid var(--line);border-bottom:0;background:transparent;color:var(--muted);
   font:inherit;font-size:14.5px;padding:11px 20px;border-radius:10px 10px 0 0;cursor:pointer;
@@ -168,7 +178,9 @@ mark{background:rgba(200,20,107,.2);color:inherit;border-radius:2px;padding:0 1p
   .tcell{padding-left:calc(var(--d) * 18px)}
   .elbow{left:calc(var(--d) * 18px - 13px)}
   .ficha-card{padding:0 18px 32px}
+  .hojas{gap:8px}
   .hojas button{padding:10px 14px;font-size:13.5px}
+  .directorio{padding:8px 13px;font-size:13.5px}
 }
 @media print{.controls,.plantilla,.hojas{display:none!important}.row{break-inside:avoid}}
 </style>
@@ -176,11 +188,21 @@ mark{background:rgba(200,20,107,.2);color:inherit;border-radius:2px;padding:0 1p
 <body>
 <div class="wrap">
   <header class="top">
-    <h1>Funciograma</h1>
-    <p class="eyebrow">Blue Star Group México · Todo Moda · Isadora</p>
-    <div class="hojas" role="tablist" aria-label="Hojas">
-      <button role="tab" id="tab-func" aria-controls="hoja-func" aria-selected="true">Funciograma</button>
-      <button role="tab" id="tab-ficha" aria-controls="hoja-ficha" aria-selected="false">Ficha de puesto</button>
+    <div class="cabeza">
+      <div>
+        <h1>Funciograma</h1>
+        <p class="eyebrow">Blue Star Group México · Todo Moda · Isadora</p>
+      </div>
+      <a class="directorio" href="https://comunicacionmx.github.io/Directorio/" target="_blank" rel="noopener">
+        Directorio
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M18.5 14.5V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V7A1.5 1.5 0 0 1 5 5.5h4.5"/></svg>
+      </a>
+    </div>
+    <div class="hojas">
+      <div class="tabs" role="tablist" aria-label="Hojas">
+        <button role="tab" id="tab-func" aria-controls="hoja-func" aria-selected="true">Funciograma</button>
+        <button role="tab" id="tab-ficha" aria-controls="hoja-ficha" aria-selected="false">Ficha de puesto</button>
+      </div>
     </div>
   </header>
 
